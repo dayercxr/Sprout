@@ -42,11 +42,11 @@
     "typescript-eslint": "^8.59.3"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx,cjs,json}": [
+    "src/**/*.{js,ts,jsx,tsx,cjs,json}": [
       "npm run format",
       "npm run format:check"
     ],
-    "**/*.{ts,tsx,js,jsx,cjs}": [
+    "src/**/*.{js,ts,jsx,tsx,cjs}": [
       "npm run lint",
       "npm run lint:check"
     ]
