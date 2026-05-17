@@ -4,10 +4,25 @@ spring:
 
   # Database configuration
   datasource:
-    url: jdbc:postgresql://${PG_HOST}:${PG_PORT}/mydb
+    url: jdbc:postgresql://{PG_HOST}:{PG_PORT}/{PG_DATABASE}
     username: ${PG_USERNAME}
     password: ${PG_PASSWORD}
     driver-class-name: org.postgresql.Driver
+
+  jpa:
+    # Generates/updates tables automatically in dev
+    hibernate:
+      ddl-auto: validate
+
+    # Show SQL in the console for debugging
+    show-sql: true
+
+    properties:
+      hibernate:
+        # Formats the SQL in the console to be readable
+        format_sql: validate
+        # Explicitly set the dialect (optional but safer)
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   # OAuth 2.0 configuration
   security:
@@ -15,10 +30,10 @@ spring:
       client:
         registration:
           google:
-            client-id:
-            client-secret:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             scope:
           github:
-            client-id:
-            client-secret:
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
             scope:
