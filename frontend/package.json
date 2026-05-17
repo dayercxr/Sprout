@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint --fix .",
+    "lint:check": "eslint .",
     "format": "prettier --config prettier.config.ts --write \"src/**/*.{js,ts,jsx,tsx,css,md}\"",
     "format:check": "prettier --config prettier.config.ts --check \"src/**/*.{js,ts,jsx,tsx,css,md}\"",
     "prepare": "husky"
