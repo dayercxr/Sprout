@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: backend
+
+  # Database configuration
+  datasource:
+    url: jdbc:postgresql://${PG_HOST}:${PG_PORT}/mydb
+    username: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  # OAuth 2.0 configuration
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id:
+            client-secret:
+            scope:
+          github:
+            client-id:
+            client-secret:
+            scope:
