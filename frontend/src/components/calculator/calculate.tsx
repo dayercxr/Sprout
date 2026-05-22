@@ -20,7 +20,7 @@ export const Calculate: FC<CalculateTypes> = ({
     CalculatorData.individualCalculator[index].logoColor;
 
   return (
-    <Paper sx={{ p: 5, mx: 15, my: 8 }}>
+    <Paper sx={{ p: 5, mx: 15, my: 8, bgcolor: "rgba(249, 249, 249, 0.47)" }}>
       <CalculateHeader
         title={title}
         description={description}

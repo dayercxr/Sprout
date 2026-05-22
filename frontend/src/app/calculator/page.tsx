@@ -6,7 +6,13 @@ import { CalculatorData } from "@/data/calculator";
 export default function NFTCalculator() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-      <Paper sx={{ p: 5 }}>
+      <Paper
+        sx={{
+          bgcolor:
+            "linear-gradient(90deg,rgba(187, 247, 250, 1) 0%, rgba(130, 222, 255, 1) 51%, rgba(187, 247, 250, 1) 100%)",
+          p: 5
+        }}
+      >
         <Box
           sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3, px: 15 }}
         >

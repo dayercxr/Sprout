@@ -1,8 +1,5 @@
-import { FC } from 'react';
-import { Box } from '@mui/material';
+import { Box } from "@mui/material";
 
-export const Watchlist: FC = () => {
-    return (
-        <Box></Box>
-    )
+export default function Watchlist() {
+  return <Box></Box>;
 }
