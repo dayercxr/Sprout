@@ -15,9 +15,10 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
+@RestController
 public class AuthenticationService {
 
-    @GetMapping("/user")
+    @GetMapping("/login")
     public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
         return Collections.singletonMap("name", principal.getAttribute("name"));
     }
