@@ -1,4 +1,4 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { TrendingUp } from "lucide-react";
 import { Calculate } from "@/components/calculator/calculate";
 import { CalculatorData } from "@/data/calculator";
@@ -6,10 +6,8 @@ import { CalculatorData } from "@/data/calculator";
 export default function NFTCalculator() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-      <Paper
+      <Box
         sx={{
-          bgcolor:
-            "linear-gradient(90deg,rgba(187, 247, 250, 1) 0%, rgba(130, 222, 255, 1) 51%, rgba(187, 247, 250, 1) 100%)",
           p: 5
         }}
       >
@@ -35,7 +33,7 @@ export default function NFTCalculator() {
             Icon={data.logo}
           />
         ))}
-      </Paper>
+      </Box>
     </Box>
   );
 }

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
 
-export default function Watchlist() {
+export default function Login() {
   return <Box></Box>;
 }

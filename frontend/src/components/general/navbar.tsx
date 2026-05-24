@@ -1,8 +1,15 @@
-"use client"
+"use client";
 
 import { FC, useState } from "react";
-import MenuIcon from '@mui/icons-material/Menu';
-import { Box, AppBar, Toolbar, Typography, Button, IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton
+} from "@mui/material";
 import { Sidebar } from "@/components/general/sidebar";
 import { NavbarData } from "@/data/navbar";
 
@@ -10,31 +17,26 @@ export const Navbar: FC = () => {
   const [sidebarState, setSidebarState] = useState<boolean>(false);
 
   return (
-
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        color="default"
-        >
+      <AppBar position='static' color='default'>
         <Toolbar>
           <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
+            size='large'
+            edge='start'
+            color='inherit'
+            aria-label='menu'
             sx={{ mr: 2 }}
             disabled={false}
             onClick={(sidebarState) => setSidebarState(!sidebarState)}
           >
             <MenuIcon />
           </IconButton>
-          <Sidebar 
-            sidebarState={sidebarState}
-          />
+          <Sidebar sidebarState={sidebarState} />
           <Box>
-            {NavbarData.map(({path, label, icon: Icon}) => 
+            {NavbarData.map(({ path, label, icon: Icon }) => (
               <Button
-                variant="outlined"
+                variant='outlined'
+                color='success'
                 href={path}
                 key={label}
                 sx={{
@@ -46,12 +48,14 @@ export const Navbar: FC = () => {
                   sx={{
                     fontWeight: 700
                   }}
-                >{label}</Typography>
+                >
+                  {label}
+                </Typography>
               </Button>
-            )}
+            ))}
           </Box>
         </Toolbar>
       </AppBar>
     </Box>
   );
-}
+};

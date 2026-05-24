@@ -2,7 +2,7 @@ import { LucideIcon } from "lucide-react";
 
 export type SidebarStateTypes = {
   sidebarState: boolean;
-}
+};
 
 export type CalculateHeaderTypes = {
   title: string;
