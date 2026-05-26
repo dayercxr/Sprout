@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Roboto } from "next/font/google";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "@/theme";
+import { ThemeContextProvider } from "@/components/general/themeProvider";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -14,7 +13,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Sprout",
-  description: "NFTs made easy"
+  description: "Cryptocurrency and NFTs made easy"
 };
 
 export default function RootLayout({
@@ -26,7 +25,7 @@ export default function RootLayout({
     <html lang='en' className={`${roboto.variable}`}>
       <body>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeContextProvider>{children}</ThemeContextProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

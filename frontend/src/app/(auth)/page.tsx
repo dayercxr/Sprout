@@ -1,16 +1,7 @@
 "use client";
 
 import {
-  Box,
-  Button,
-  AppBar,
-  Toolbar,
-  Typography,
-  Stack,
-  Divider,
-  Container,
-  Chip,
-  Drawer
+  Box
 } from "@mui/material";
 import { NavigationSection } from "@/components/home/nav";
 import { HeroSection } from "@/components/home/hero";
