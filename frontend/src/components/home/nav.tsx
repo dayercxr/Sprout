@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { AppBar, Typography, Toolbar, Stack, Button } from "@mui/material";
+import { ThemeToggle } from "@/components/general/themeToggle";
 import { HomeData } from "@/data/home";
 
 export const NavigationSection: FC = () => {
@@ -36,6 +37,7 @@ export const NavigationSection: FC = () => {
           <Button variant='contained' color='success'>
             {HomeData.NavigationSection.signupButton}
           </Button>
+          <ThemeToggle />
         </Stack>
       </Toolbar>
     </AppBar>

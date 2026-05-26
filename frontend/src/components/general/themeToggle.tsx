@@ -1,13 +1,29 @@
-import { FC, useContext } from 'react';
-import { createTheme } from '@mui/material/styles';
-import { Switch } from '@mui/material';
+// components/ThemeToggle.tsx
+"use client";
 
-export const ThemeToggle: FC = () => {
-    const theme = createTheme();
-    const { toggleColorMode } = useContext(ColorModeContext);
-    const currentMode = theme.palette.mode;
+import { Switch, Stack, SvgIcon } from "@mui/material";
+import { GrSun } from 'react-icons/gr';
+import { TbMoon } from 'react-icons/tb';
+import { useThemeContext } from "@/context/themeContext";
 
-    return (
-        <Switch />
-    )
+export function ThemeToggle() {
+  const { mode, toggleTheme } = useThemeContext();
+
+  return (
+    <Stack direction='row' sx={{ alignItems: 'center'}}>
+      <SvgIcon 
+        component={GrSun}
+        inheritViewBox
+      />
+      <Switch
+        checked={mode === "dark"}
+        onChange={toggleTheme}
+        color='default'
+          />
+      <SvgIcon 
+        component={TbMoon}
+        inheritViewBox
+      />
+    </Stack>
+  );
 }

@@ -10,11 +10,11 @@ import {
   CardContent
 } from "@mui/material";
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-import { HomeData } from '@/data/home';
+import { HomeData } from "@/data/home";
 
 export const HeroSection: FC = () => {
+  const HeroSectionData = HomeData.HeroSection;
 
-  const HeroSectionData = HomeData.HeroSection
   const ACCENT = "#00ff87";
   const BORDER = "rgba(255,255,255,0.08)";
 
@@ -33,7 +33,6 @@ export const HeroSection: FC = () => {
           alignItems: "space-b"
         }}
       >
-        {/* Left */}
         <Box>
           <Typography
             variant='h2'
@@ -46,7 +45,6 @@ export const HeroSection: FC = () => {
           >
             {HeroSectionData.header}
           </Typography>
-          
 
           <Typography
             variant='body1'
@@ -58,26 +56,22 @@ export const HeroSection: FC = () => {
               fontSize: "1.1rem"
             }}
           >
-            Real-time crypto and NFT tracking across 42 chains. Portfolio
-            analytics, whale alerts, and DeFi positions — unified in one
-            precision terminal.
+            {HeroSectionData.description}
           </Typography>
 
           <Stack direction='row' spacing={2}>
-            <Button variant='contained' color='primary' sx={{ px: 5, py: 1.5 }}>
-              START TRACKING FREE
+            <Button variant='contained' color='success' sx={{ px: 5, py: 1.5 }}>
+              {HeroSectionData.signupButton.label}
             </Button>
             <Button
               variant='outlined'
-              color='secondary'
               sx={{ px: 5, py: 1.5 }}
             >
-              VIEW LIVE DEMO
+              {HeroSectionData.loginButton.label}
             </Button>
           </Stack>
         </Box>
 
-        {/* Portfolio Card */}
         <Card>
           <Box
             sx={{
