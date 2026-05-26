@@ -1,5 +1,12 @@
 import { LucideIcon } from "lucide-react";
 
+export type Mode = "light" | "dark";
+
+export interface ThemeContextTypes {
+  mode: Mode;
+  toggleTheme: () => void;
+}
+
 export type SidebarStateTypes = {
   sidebarState: boolean;
 };
