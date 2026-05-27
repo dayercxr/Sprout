@@ -1,15 +1,4 @@
-import {
-  Box,
-  Button,
-  Paper,
-  Grid,
-  Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField
-} from "@mui/material";
+import { Box } from "@mui/material";
 import { WatchlistStatistics } from "@/components/watchlist/statistics";
 import { WatchlistContent } from "@/components/watchlist/content";
 

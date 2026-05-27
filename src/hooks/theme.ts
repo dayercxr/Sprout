@@ -9,23 +9,18 @@ export const useCreateTheme = () => {
   const [mode, setMode] = useState<Mode>("light");
 
   useEffect(() => {
-    const syncFromCookie = () => {
-      const saved = getCookie("theme") as "light" | "dark" | undefined;
-      if (saved && saved !== mode) setMode(saved);
-    };
-
     const handlePageShow = (e: PageTransitionEvent) => {
-      if (e.persisted) syncFromCookie();
+      if (e.persisted) {
+        const saved = getCookie("theme") as Mode | undefined;
+        if (saved === "light" || saved === "dark") {
+          setMode(saved);
+        }
+      }
     };
 
     window.addEventListener("pageshow", handlePageShow);
-    window.addEventListener("focus", syncFromCookie);
-
-    return () => {
-      window.removeEventListener("pageshow", handlePageShow);
-      window.removeEventListener("focus", syncFromCookie);
-    };
-  }, [mode]);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
 
   const toggleTheme = () => {
     const next: Mode = mode === "light" ? "dark" : "light";
@@ -35,5 +30,5 @@ export const useCreateTheme = () => {
 
   const theme = useMemo(() => createTheme({ palette: { mode } }), [mode]);
 
-  return { mode, theme, toggleTheme };
+  return { mode, theme, setMode, toggleTheme };
 };
