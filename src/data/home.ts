@@ -5,8 +5,7 @@ import {
   CloudLightning,
   ShieldAlert,
   Layers,
-  Earth,
-  ChevronRight
+  Earth
 } from "lucide-react";
 
 export const HomeData = {
