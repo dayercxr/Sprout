@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { signIn } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
 import {
   Box,
   Button,
@@ -68,9 +67,6 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
-
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/dashboard";
 
   const validateInputs = () => {
     const email = document.getElementById("email") as HTMLInputElement;
@@ -193,7 +189,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
           <Button
             fullWidth
             variant='outlined'
-            onClick={() => signIn("google", { callbackUrl })}
+            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
             startIcon={<FcGoogle />}
           >
             Sign in with Google
@@ -201,7 +197,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
           <Button
             fullWidth
             variant='outlined'
-            onClick={() => signIn("github", { callbackUrl })}
+            onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
             startIcon={<FaGithub color='primary' />}
           >
             Sign in with Github
