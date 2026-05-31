@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
-import { signIn } from "next-auth/react";
+import { useState } from "react";
+import { AuthClientHandler } from "@/db/auth-client";
 import {
   Box,
   Button,
@@ -61,62 +61,13 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignUp(props: { disableCustomTheme?: boolean }) {
-  const [emailError, setEmailError] = React.useState(false);
-  const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
-  const [passwordError, setPasswordError] = React.useState(false);
-  const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
-  const [nameError, setNameError] = React.useState(false);
-  const [nameErrorMessage, setNameErrorMessage] = React.useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
-  const validateInputs = () => {
-    const email = document.getElementById("email") as HTMLInputElement;
-    const password = document.getElementById("password") as HTMLInputElement;
-    const name = document.getElementById("name") as HTMLInputElement;
-
-    let isValid = true;
-
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
-      setEmailError(true);
-      setEmailErrorMessage("Please enter a valid email address.");
-      isValid = false;
-    } else {
-      setEmailError(false);
-      setEmailErrorMessage("");
-    }
-
-    if (!password.value || password.value.length < 6) {
-      setPasswordError(true);
-      setPasswordErrorMessage("Password must be at least 6 characters long.");
-      isValid = false;
-    } else {
-      setPasswordError(false);
-      setPasswordErrorMessage("");
-    }
-
-    if (!name.value || name.value.length < 1) {
-      setNameError(true);
-      setNameErrorMessage("Name is required.");
-      isValid = false;
-    } else {
-      setNameError(false);
-      setNameErrorMessage("");
-    }
-
-    return isValid;
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    if (nameError || emailError || passwordError) {
-      event.preventDefault();
-      return;
-    }
-    const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get("name"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      password: data.get("password")
-    });
+  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    AuthClientHandler.CredentialsLogInHandler(email, password, setError);
   };
 
   return (
@@ -147,14 +98,12 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
             <TextField
               required
               fullWidth
-              id='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder='your@email.com'
               name='email'
               autoComplete='email'
               variant='outlined'
-              error={emailError}
-              helperText={emailErrorMessage}
-              color={passwordError ? "error" : "primary"}
             />
           </FormControl>
           <FormControl>
@@ -162,23 +111,16 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
             <TextField
               required
               fullWidth
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               name='password'
               placeholder='••••••'
               type='password'
-              id='password'
               autoComplete='new-password'
               variant='outlined'
-              error={passwordError}
-              helperText={passwordErrorMessage}
-              color={passwordError ? "error" : "primary"}
             />
           </FormControl>
-          <Button
-            type='submit'
-            fullWidth
-            variant='contained'
-            onClick={validateInputs}
-          >
+          <Button type='submit' fullWidth variant='contained'>
             Sign up
           </Button>
         </Box>
@@ -189,7 +131,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
           <Button
             fullWidth
             variant='outlined'
-            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+            onClick={() => AuthClientHandler.GoogleHandler()}
             startIcon={<FcGoogle />}
           >
             Sign in with Google
@@ -197,7 +139,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
           <Button
             fullWidth
             variant='outlined'
-            onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
+            onClick={() => AuthClientHandler.GithubHandler()}
             startIcon={<FaGithub color='primary' />}
           >
             Sign in with Github
