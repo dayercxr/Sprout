@@ -18,8 +18,10 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 
 - React.js
 - Next.js
-- NextAuth.js
+- Better Auth
 - Typescript
+- PostgreSQL
+- Drizzle ORM
 - Material-UI (MUI)
 
 
@@ -29,6 +31,7 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 .
 ├── AGENTS.md
 ├── CLAUDE.md
+├── drizzle.config.ts
 ├── eslint.config.mjs
 ├── eslint.config.mts
 ├── next.config.ts
@@ -56,9 +59,7 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │       └── page.tsx
 │   │   ├── api
 │   │   │   └── auth
-│   │   │       ├── [...nextauth]
-│   │   │       │   └── route.ts
-│   │   │       └── signup
+│   │   │       └── [...all]
 │   │   │           └── route.ts
 │   │   ├── globals.css
 │   │   └── layout.tsx
@@ -95,20 +96,23 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   ├── navbar.ts
 │   │   ├── signup.ts
 │   │   └── watchlist.ts
+│   ├── db
+│   │   ├── auth-client.ts
+│   │   ├── auth-schema.ts
+│   │   ├── auth.ts
+│   │   └── index.ts
 │   ├── hooks
 │   ├── libs
-│   │   ├── auth.ts
 │   │   ├── coins.ts
-│   │   ├── db.ts
 │   │   ├── index.ts
-│   │   ├── nft.ts
-│   │   └── schema.sql
+│   │   └── nft.ts
+│   ├── migrations
 │   ├── theme.ts
 │   └── types.ts
 └── tsconfig.json
 ```
 
-## Setup and Installation
+## Development
 
 ### Prerequisites
 
@@ -116,6 +120,7 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 
 
 ### Setup Environment
+
 - Create a .env file:
 ```bash
 cp .env.example .env
@@ -135,11 +140,27 @@ npm i
 npm run dev
 ```
 
-
-
 ### Local URLs
 
 - Next.js Application
 ```bash
 http://localhost:3000
+```
+
+## Database Migration
+
+- Generate Migration
+```bash
+npx drizzle-kit generate
+```
+
+- Apply Migration
+```bash
+npx drizzle-kit migrate
+```
+
+## Auto-Format Code
+```bash
+npm run lint
+npm run format
 ```
