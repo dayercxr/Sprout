@@ -4,7 +4,7 @@ import { LucideIcon } from "lucide-react";
 
 // AuthenticationTypes
 
-// Client Types
+// UI Types
 
 export type SidebarStateTypes = {
   sidebarState: boolean;

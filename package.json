@@ -13,6 +13,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@auth/pg-adapter": "^1.11.2",
+    "@better-auth/kysely-adapter": "^1.6.13",
     "@coingecko/coingecko-typescript": "^5.1.1",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
@@ -22,9 +24,12 @@
     "@mui/material-nextjs": "^9.0.1",
     "@neondatabase/serverless": "^1.1.0",
     "axios": "^1.16.1",
+    "better-auth": "^1.6.11",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "kysely": "^0.29.2",
     "lucide-react": "^1.16.0",
     "next": "16.2.6",
-    "next-auth": "^4.24.14",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-icons": "^5.6.0",
@@ -37,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",
     "babel-plugin-react-compiler": "1.0.0",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.6",
     "eslint-config-prettier": "^10.1.8",
@@ -49,11 +55,11 @@
     "typescript-eslint": "^8.59.3"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,jsx,tsx,cjs,json}": [
+    "*.{js,ts,jsx,tsx,cjs,json}": [
       "npm run format",
       "npm run format:check"
     ],
-    "src/**/*.{js,ts,jsx,tsx,cjs}": [
+    "*.{js,ts,jsx,tsx,cjs}": [
       "npm run lint",
       "npm run lint:check"
     ]
