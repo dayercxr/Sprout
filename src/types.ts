@@ -2,6 +2,10 @@ import { APIPromise } from "@coingecko/coingecko-typescript";
 import MarketGetResponse from "@coingecko/coingecko-typescript";
 import { LucideIcon } from "lucide-react";
 
+// AuthenticationTypes
+
+// Client Types
+
 export type SidebarStateTypes = {
   sidebarState: boolean;
 };
