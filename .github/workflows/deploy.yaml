@@ -1,4 +1,4 @@
-name: Sprout CI/CD
+name: Sprout CI
 
 on:
   push:
