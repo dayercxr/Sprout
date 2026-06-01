@@ -11,10 +11,13 @@ import {
   Link,
   TextField,
   Typography,
-  Stack
+  Stack,
+  IconButton
 } from "@mui/material";
 import MuiCard from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
+import { ThemeToggle } from "@/components/general/themeToggle";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
@@ -75,6 +78,12 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
       direction='column'
       sx={{ justifyContent: "space-between" }}
     >
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <IconButton href='/' sx={{ border: 1 }}>
+          <ArrowBack />
+        </IconButton>
+        <ThemeToggle />
+      </Box>
       <Card variant='outlined'>
         <Typography
           component='h1'
