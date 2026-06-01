@@ -15,7 +15,7 @@
   "dependencies": {
     "@auth/pg-adapter": "^1.11.2",
     "@better-auth/kysely-adapter": "^1.6.13",
-    "@coingecko/coingecko-typescript": "^5.1.1",
+    "@coingecko/coingecko-typescript": "^6.0.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
