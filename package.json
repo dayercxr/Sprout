@@ -52,7 +52,7 @@
     "lint-staged": "^17.0.5",
     "prettier": "^3.8.3",
     "typescript": "^5",
-    "typescript-eslint": "^8.59.3"
+    "typescript-eslint": "^8.60.0"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,cjs,json}": [
