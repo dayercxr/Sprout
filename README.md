@@ -159,6 +159,16 @@ npx drizzle-kit generate
 npx drizzle-kit migrate
 ```
 
+## Database Migration (Development)
+- Alternatively, if you want to apply schema changes immediately without generating migration files, run
+```bash
+npx drizzle-kit push
+```
+
+> [!CAUTION]
+> Only use `drizzle-kit push` for local development, rapid prototyping, or working with databases like SQlite/Vercel Postgres.
+> Never use `drizzle-kit push` in production as the absence of static migration files causes difficulty in tracking execution history safely via CI/CD deployment pipeline, which can lead to unintended, data-destructive alter operations.
+
 ## Auto-Format Code
 ```bash
 npm run lint
