@@ -73,9 +73,17 @@ export const verification = pgTable(
   (table) => [index("verification_identifier_idx").on(table.identifier)]
 );
 
+export const watchlist = pgTable("watchlist", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull(),
+  cryptoId: text("crypto_id").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull()
+});
+
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
-  accounts: many(account)
+  accounts: many(account),
+  watchlists: many(watchlist)
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -88,6 +96,13 @@ export const sessionRelations = relations(session, ({ one }) => ({
 export const accountRelations = relations(account, ({ one }) => ({
   user: one(user, {
     fields: [account.userId],
+    references: [user.id]
+  })
+}));
+
+export const watchlistRelations = relations(watchlist, ({ one }) => ({
+  user: one(user, {
+    fields: [watchlist.userId],
     references: [user.id]
   })
 }));
