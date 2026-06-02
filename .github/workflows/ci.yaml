@@ -1,4 +1,4 @@
-name: Sprout CI
+name: CI workflow
 
 on:
   push:
