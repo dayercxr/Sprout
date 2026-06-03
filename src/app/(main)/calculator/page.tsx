@@ -1,9 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { TrendingUp } from "lucide-react";
+import { AuthServerHandler } from "@/libs/auth/auth-server";
 import { Calculate } from "@/components/calculator/calculate";
 import { CalculatorData } from "@/data/calculator";
 
-export default function NFTCalculator() {
+export default async function NFTCalculator() {
+  await AuthServerHandler.requireAuth();
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
       <Box

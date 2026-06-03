@@ -4,9 +4,12 @@ import { TopCollection } from "@/components/dashboard/topCollection";
 import { PriceChart } from "@/components/dashboard/priceChart";
 import { CoinHandlers } from "@/libs/api/coins";
 import Coingecko from "@coingecko/coingecko-typescript";
+import { AuthServerHandler } from "@/libs/auth/auth-server";
 import { MarketChartTypes } from "@/types";
 
 export default async function Dashboard() {
+  await AuthServerHandler.requireAuth();
+
   const coinList = await CoinHandlers.getCoinList();
   const topCoins = await CoinHandlers.getTopCoin();
   const topCoinPriceChart = await CoinHandlers.getTopCoinPriceChart();
