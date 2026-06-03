@@ -1,17 +1,22 @@
-import { APIPromise } from "@coingecko/coingecko-typescript";
-import MarketGetResponse from "@coingecko/coingecko-typescript";
+import Coingecko from "@coingecko/coingecko-typescript";
 import { LucideIcon } from "lucide-react";
 
 // AuthenticationTypes
+
+// API Types
+
+export interface CoinGeckoTypes {
+  data: Coingecko;
+}
+
+export interface MarketChartTypes {
+  prices: [Date, number][];
+}
 
 // UI Types
 
 export type SidebarStateTypes = {
   sidebarState: boolean;
-};
-
-export type CollectionTypes = {
-  data: APIPromise<MarketGetResponse>;
 };
 
 export interface TrendingCollectionsProps {
