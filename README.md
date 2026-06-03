@@ -55,6 +55,8 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │   ├── dashboard
 │   │   │   │   └── page.tsx
 │   │   │   ├── layout.tsx
+│   │   │   ├── profile
+│   │   │   │   └── page.tsx
 │   │   │   └── watchlist
 │   │   │       └── page.tsx
 │   │   ├── api
@@ -70,6 +72,7 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │   ├── calculateHeader.tsx
 │   │   │   └── calculateInput.tsx
 │   │   ├── dashboard
+│   │   │   ├── priceChart.tsx
 │   │   │   ├── topCollection.tsx
 │   │   │   └── trendingCollections.tsx
 │   │   ├── general
@@ -97,16 +100,20 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   ├── signup.ts
 │   │   └── watchlist.ts
 │   ├── db
-│   │   ├── auth-client.ts
-│   │   ├── auth-schema.ts
-│   │   ├── auth.ts
-│   │   └── index.ts
+│   │   ├── index.ts
+│   │   └── schema.ts
 │   ├── hooks
 │   ├── libs
-│   │   ├── coins.ts
-│   │   ├── index.ts
-│   │   └── nft.ts
+│   │   ├── api
+│   │   │   ├── coins.ts
+│   │   │   ├── index.ts
+│   │   │   └── recharts.ts
+│   │   └── auth
+│   │       ├── auth-client.ts
+│   │       ├── auth-server.ts
+│   │       └── index.ts
 │   ├── migrations
+│   ├── proxy.ts
 │   ├── theme.ts
 │   └── types.ts
 └── tsconfig.json
@@ -167,7 +174,7 @@ npx drizzle-kit push
 
 > [!CAUTION]
 > Only use `drizzle-kit push` for local development, rapid prototyping, or working with databases like SQlite/Vercel Postgres.
-> Never use `drizzle-kit push` in production as the absence of static migration files causes difficulty in tracking execution history safely via CI/CD deployment pipeline, which can lead to unintended, data-destructive alter operations.
+> Never use it in production as the absence of static migration files causes difficulty in tracking execution history safely via CI/CD deployment pipeline, which can lead to unintended, data-destructive alter operations.
 
 ## Auto-Format Code
 ```bash
