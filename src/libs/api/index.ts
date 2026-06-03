@@ -1,4 +1,3 @@
-import "server-only";
 import Coingecko from "@coingecko/coingecko-typescript";
 import { COINGECKO_API_KEY } from "@/config";
 
