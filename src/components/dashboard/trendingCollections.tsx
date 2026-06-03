@@ -1,11 +1,11 @@
 import { Paper, Typography, Box, ButtonBase } from "@mui/material";
 import { TrendingUp, TrendingDown } from "lucide-react";
-import { CoinHandlers } from "@/libs/coins";
 import { DashboardData } from "@/data/dashboard";
+import { CoinGeckoTypes } from "@/types";
 
-export async function TrendingCollections() {
+export function TrendingCollections({ data }: CoinGeckoTypes) {
   const TrendingCollectionsData = DashboardData.trendingCollection;
-  const CoinMarketData = CoinHandlers.getCoinList();
+  const CoinMarketData = data;
 
   return (
     <Paper sx={{ p: 3 }}>

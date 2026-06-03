@@ -1,10 +1,10 @@
-import { Box, Paper, Typography, IconButton, Grid } from "@mui/material";
-import { CoinHandlers } from "@/libs/coins";
+import { Box, Paper, Typography, Grid } from "@mui/material";
 import { DashboardData } from "@/data/dashboard";
+import { CoinGeckoTypes } from "@/types";
 
-export async function TopCollection() {
+export function TopCollection({ data }: CoinGeckoTypes) {
   const TopCollectionData = DashboardData.topCollection;
-  const CoinMarketData = await CoinHandlers.getCoinList();
+  const CoinMarketData = Array.isArray(data) ? data : [data];
   const TopCoinMarketData = CoinMarketData[0];
 
   const TopCoinMarketDataArray = [
