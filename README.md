@@ -77,7 +77,6 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │   └── trendingCollections.tsx
 │   │   ├── general
 │   │   │   ├── navbar.tsx
-│   │   │   ├── sidebar.tsx
 │   │   │   ├── themeProvider.tsx
 │   │   │   └── themeToggle.tsx
 │   │   ├── home
@@ -108,11 +107,17 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │   ├── coins.ts
 │   │   │   ├── index.ts
 │   │   │   └── recharts.ts
-│   │   └── auth
-│   │       ├── auth-client.ts
-│   │       ├── auth-server.ts
+│   │   ├── auth
+│   │   │   ├── auth-client.ts
+│   │   │   ├── auth-server.ts
+│   │   │   └── index.ts
+│   │   └── client
 │   │       └── index.ts
 │   ├── migrations
+│   │   ├── 0000_tough_ezekiel_stane.sql
+│   │   └── meta
+│   │       ├── _journal.json
+│   │       └── 0000_snapshot.json
 │   ├── proxy.ts
 │   ├── theme.ts
 │   └── types.ts
@@ -173,8 +178,8 @@ npx drizzle-kit push
 ```
 
 > [!CAUTION]
-> Only use `drizzle-kit push` for local development, rapid prototyping, or working with databases like SQlite/Vercel Postgres.
-> Never use it in production as the absence of static migration files causes difficulty in tracking execution history safely via CI/CD deployment pipeline, which can lead to unintended, data-destructive alter operations.
+> Only use `drizzle-kit push` for local development/rapid prototyping.
+> Never use it in production.
 
 ## Auto-Format Code
 ```bash
