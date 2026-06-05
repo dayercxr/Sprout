@@ -7,7 +7,8 @@ import {
   GOOGLE_CLIENT_SECRET,
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,
-  BETTER_AUTH_SECRET
+  BETTER_AUTH_SECRET,
+  BETTER_AUTH_URL
 } from "@/config";
 
 export const auth = betterAuth({
@@ -36,5 +37,6 @@ export const auth = betterAuth({
     }
   },
 
-  secret: BETTER_AUTH_SECRET
+  secret: BETTER_AUTH_SECRET,
+  baseURL: BETTER_AUTH_URL
 });

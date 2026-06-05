@@ -44,5 +44,17 @@ export const AuthClientHandler = {
       provider: "github",
       callbackURL: "/dashboard"
     });
+  },
+
+  SignOutHandler: async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          if (typeof window !== "undefined") {
+            window.location.assign("/login");
+          }
+        }
+      }
+    });
   }
 };
