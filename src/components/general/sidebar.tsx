@@ -1,30 +1,17 @@
 import { FC } from "react";
-import {
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Divider
-} from "@mui/material";
-import { Home } from "lucide-react";
+import { Menu, MenuItem } from "@mui/material";
+import { NavbarData } from "@/data/navbar";
 import { SidebarStateTypes } from "@/types";
 
-const SidebarContent = (
-  <Box>
-    <List>
-      <ListItem>
-        <ListItemButton href='/'>
-          <Home />
-          <ListItemText primary='Home' />
-        </ListItemButton>
-      </ListItem>
-    </List>
-    <Divider />
-  </Box>
-);
-
 export const Sidebar: FC<SidebarStateTypes> = ({ sidebarState }) => {
-  return <Drawer open={sidebarState}>{SidebarContent}</Drawer>;
+  return (
+    <Menu open={sidebarState}>
+      {NavbarData.menu.map(({ label, path, Icon }) => (
+        <MenuItem key={label} href={path}>
+          <Icon />
+          {label}
+        </MenuItem>
+      ))}
+    </Menu>
+  );
 };

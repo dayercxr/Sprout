@@ -10,6 +10,7 @@ export const GITHUB_CLIENT_SECRET: string = process.env
 
 export const BETTER_AUTH_SECRET: string = process.env
   .BETTER_AUTH_SECRET as string;
+export const BETTER_AUTH_URL: string = process.env.BETTER_AUTH_URL as string;
 
 export const COINGECKO_API_KEY: string = process.env
   .COINGECKO_API_KEY as string;
