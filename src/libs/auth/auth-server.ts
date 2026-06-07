@@ -11,5 +11,11 @@ export const AuthServerHandler = {
     const session = await AuthServerHandler.getSession();
     if (!session) redirect("/login");
     return session;
+  },
+
+  redirectAuth: async () => {
+    const session = await AuthServerHandler.getSession();
+    if (session) redirect("/dashboard");
+    return session;
   }
 };
