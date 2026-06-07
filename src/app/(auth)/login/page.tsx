@@ -1,5 +1,8 @@
+import { AuthServerHandler } from "@/libs/auth/auth-server";
 import Login from "@/components/login/login";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  await AuthServerHandler.redirectAuth();
+
   return <Login />;
 }

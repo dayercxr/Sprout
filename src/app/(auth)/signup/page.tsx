@@ -1,5 +1,8 @@
+import { AuthServerHandler } from "@/libs/auth/auth-server";
 import Signup from "@/components/signup/signup";
 
-export default function SignupPage() {
+export default async function SignupPage() {
+  await AuthServerHandler.redirectAuth();
+
   return <Signup />;
 }
