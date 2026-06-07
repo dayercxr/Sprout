@@ -1,6 +1,6 @@
 # Sprout
-Sprout is a light-weight data-driven web application designed for NFT and cryptocurrency pricing analysis. 
-This platform provides a centralized dashboard to discover trending NFT collections, track historical floor prices, analyze
+Sprout is a light-weight web application designed for cryptocurrency pricing analysis. 
+It provides a centralized dashboard to discover trending NFT collections, track historical floor prices, analyze
 market capitalizations, and view trading volumes across multiple blockchain networks.
 
 ## ✨ Key Features
