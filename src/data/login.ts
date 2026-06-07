@@ -12,12 +12,12 @@ export const LoginData = {
     {
       label: "SIGN IN WITH GOOGLE",
       Icon: FcGoogle,
-      Fn: AuthClientHandler.GoogleHandler()
+      Fn: () => AuthClientHandler.GoogleHandler()
     },
     {
       label: "SIGN IN WITH GITHUB",
       Icon: FaGithub,
-      Fn: AuthClientHandler.GithubHandler()
+      Fn: () => AuthClientHandler.GithubHandler()
     }
   ],
   submit: "SIGN IN",

@@ -14,12 +14,12 @@ export const SignupData = {
     {
       label: "SIGN UP WITH GOOGLE",
       Icon: FcGoogle,
-      Fn: AuthClientHandler.GoogleHandler()
+      Fn: () => AuthClientHandler.GoogleHandler()
     },
     {
       label: "SIGN UP WITH GITHUB",
       Icon: FaGithub,
-      Fn: AuthClientHandler.GithubHandler()
+      Fn: () => AuthClientHandler.GithubHandler()
     }
   ],
   login: {
