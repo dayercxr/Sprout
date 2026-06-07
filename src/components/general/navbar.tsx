@@ -15,7 +15,7 @@ import {
   MenuItem
 } from "@mui/material";
 import { ThemeToggle } from "@/components/general/themeToggle";
-import { MenubarHandlers } from "@/libs/client/index";
+import { MenubarHandlers } from "@/libs/client/menubar";
 import { NavbarData } from "@/data/navbar";
 
 export const Navbar: FC = () => {
