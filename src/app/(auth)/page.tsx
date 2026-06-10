@@ -11,14 +11,7 @@ export default async function Home() {
   const session = await AuthServerHandler.getSession();
 
   return (
-    <Box
-      sx={{
-        bgcolor: "background.default",
-        minHeight: "100vh",
-        color: "text.primary",
-        overflowX: "hidden"
-      }}
-    >
+    <Box>
       {session ? <Navbar /> : <NavigationSection />}
       <HeroSection />
       <FeaturesSection />
