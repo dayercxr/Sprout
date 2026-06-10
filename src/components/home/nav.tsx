@@ -31,19 +31,13 @@ export const NavigationSection: FC = () => {
           sx={{ display: { xs: "none", md: "flex" } }}
         >
           <Button
-            variant='text'
+            variant='outlined'
             href={NavigationLoginData.path}
-            sx={{
-              color: "black"
-            }}
+            sx={{ px: 1.5 }}
           >
             {NavigationLoginData.label}
           </Button>
-          <Button
-            variant='contained'
-            color='success'
-            href={NavigationSignupData.path}
-          >
+          <Button variant='contained' href={NavigationSignupData.path}>
             {NavigationSignupData.label}
           </Button>
           <ThemeToggle />

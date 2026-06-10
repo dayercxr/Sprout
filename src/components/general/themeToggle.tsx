@@ -13,7 +13,7 @@ export function ThemeToggle() {
       <SvgIcon component={GrSun} inheritViewBox />
       <Switch
         checked={mode === "dark"}
-        onChange={() => setMode(mode === "dark" ? "light" : "dark")}
+        onChange={() => setMode(mode === "light" ? "dark" : "light")}
       />
       <SvgIcon component={TbMoon} inheritViewBox />
     </Stack>

@@ -67,7 +67,6 @@ export const HeroSection: FC = () => {
             <Button
               variant='contained'
               href={SignupData.path}
-              color='success'
               sx={{ px: 5, py: 1.5 }}
             >
               {SignupData.label}
