@@ -1,12 +1,12 @@
 import {
-  ArrowUpRight,
-  BarChartBig,
-  Bell,
-  CloudLightning,
-  ShieldAlert,
+  BarChart,
   Layers,
-  Earth
-} from "lucide-react";
+  Notifications,
+  Security,
+  Bolt,
+  Public
+} from "@mui/icons-material";
+import { ArrowUpRight } from "lucide-react";
 
 export const HomeData = {
   NavigationSection: {
@@ -32,7 +32,7 @@ export const HomeData = {
     description: "EVERYTHING A SERIOUS TRADER NEEDS",
     points: [
       {
-        Icon: BarChartBig,
+        Icon: BarChart,
         title: "Real-Time Price Feeds",
         description: "Data from exchanges"
       },
@@ -43,25 +43,25 @@ export const HomeData = {
           "Monitor floor prices, rarity scores, and collection volume across OpenSea, Blur, Magic Eden and more."
       },
       {
-        Icon: Bell,
+        Icon: Notifications,
         title: "Smart Alert Engine",
         description:
           "Price Targets, whale movements, gas spikes - deliver via push, email, or Telegram the instant they trigger."
       },
       {
-        Icon: ShieldAlert,
+        Icon: Security,
         title: "Wallet Security Radar",
         description:
           "Detect approval risks, phishing contracts, and drainer activity before your assets are at risk."
       },
       {
-        Icon: CloudLightning,
+        Icon: Bolt,
         title: "Defi Position Monitor",
         description:
           "Aggregate your yield, LP positions, staking rewards, and health factors across every protocol."
       },
       {
-        Icon: Earth,
+        Icon: Public,
         title: "42-Chain Coverage",
         description:
           "Ethereum, Solana, Base, Arbitrum, Polygon, Avalanche, and 36 more chains tracked natively."
