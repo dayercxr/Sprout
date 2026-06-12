@@ -17,6 +17,7 @@ import {
 import { ThemeToggle } from "@/components/general/themeToggle";
 import { MenubarHandlers } from "@/libs/client/menubar";
 import { NavbarData } from "@/data/navbar";
+import { THEME_VARS } from "@/theme";
 
 export const Navbar: FC = () => {
   const [menubarState, setMenubarState] = useState<HTMLButtonElement | null>(

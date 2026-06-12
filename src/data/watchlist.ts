@@ -8,7 +8,7 @@ export const WatchlistData = {
   ],
   content: {
     title: "My Watchlist",
-    addButton: "Add Collection",
+    addButton: "+ Add Collection",
     labels: ["Floor Price", "Weekly Change", "Weekly Volume"]
   }
 };

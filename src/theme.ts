@@ -27,12 +27,15 @@ export const theme = createTheme({
   colorSchemes: {
     light: {
       palette: {
-        primary: {
-          main: THEME_VARS.LIGHT.DEFAULT_COLOR
-        },
         background: {
           default: THEME_VARS.LIGHT.BACKGROUND_COLOR,
           paper: THEME_VARS.LIGHT.PAPER_COLOR
+        },
+        primary: {
+          main: THEME_VARS.LIGHT.DEFAULT_COLOR
+        },
+        success: {
+          main: THEME_VARS.LIGHT.DEFAULT_COLOR
         }
       }
     },
