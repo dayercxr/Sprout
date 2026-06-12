@@ -1,5 +1,12 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp, boolean, index } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  text,
+  timestamp,
+  boolean,
+  index,
+  real
+} from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
@@ -77,6 +84,7 @@ export const watchlist = pgTable("watchlist", {
   id: text("id").primaryKey(),
   userId: text("user_id").notNull(),
   cryptoId: text("crypto_id").notNull(),
+  percentChange: real("percent_change").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull()
 });
 
