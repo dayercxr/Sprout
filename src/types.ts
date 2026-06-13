@@ -1,5 +1,6 @@
 import Coingecko from "@coingecko/coingecko-typescript";
 import { LucideIcon } from "lucide-react";
+import { Dispatch, SetStateAction } from "react";
 
 // AuthenticationTypes
 
@@ -50,3 +51,8 @@ export type CalculateDisplayTypes = {
   title: string;
   value: number;
 };
+
+export interface DialogTypes {
+  dialogState: boolean;
+  setDialogState: Dispatch<SetStateAction<boolean>>;
+}
