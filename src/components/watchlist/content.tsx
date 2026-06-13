@@ -1,12 +1,15 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Box, Paper, Typography, Button } from "@mui/material";
 import { Star } from "lucide-react";
 import { WatchlistData } from "@/data/watchlist";
+import { WatchlistDialog } from "@/components/watchlist/dialog";
 import { THEME_VARS } from "@/theme";
 
 export const WatchlistContent: FC = () => {
+  const [dialogState, setDialogState] = useState<boolean>(false);
+
   return (
     <Paper sx={{ mb: 7 }}>
       <Box
@@ -23,6 +26,7 @@ export const WatchlistContent: FC = () => {
         </Typography>
         <Button
           variant='contained'
+          onClick={() => setDialogState(true)}
           sx={[
             (theme) =>
               theme.applyStyles("light", {
@@ -63,6 +67,7 @@ export const WatchlistContent: FC = () => {
         </Typography>
         <Button
           variant='contained'
+          onClick={() => setDialogState(true)}
           sx={[
             (theme) =>
               theme.applyStyles("light", {
@@ -79,6 +84,10 @@ export const WatchlistContent: FC = () => {
           Add Your First Collection
         </Button>
       </Box>
+      <WatchlistDialog
+        dialogState={dialogState}
+        setDialogState={setDialogState}
+      />
     </Paper>
   );
 };
