@@ -1,5 +1,4 @@
 import { MarketChartTypes } from "@/types";
-import { Coingecko } from "@coingecko/coingecko-typescript";
 
 export const RechartsHandlers = {
   formatDate: (date: Date) => {

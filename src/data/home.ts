@@ -33,14 +33,15 @@ export const HomeData = {
     points: [
       {
         Icon: BarChart,
-        title: "Real-Time Price Feeds",
-        description: "Data from exchanges"
+        title: "Consolidated Multi-Asset Dashboard",
+        description:
+          "Display total portfolio balance, asset allocation percentages and 24-hour price movements for dozens of coins."
       },
       {
         Icon: Layers,
-        title: "NFT Portfolio Tracking",
+        title: "On-Demand Historical Performance Charts",
         description:
-          "Monitor floor prices, rarity scores, and collection volume across OpenSea, Blur, Magic Eden and more."
+          "Price charts that load dynamically only when a user clicks on a specific assets to view its details."
       },
       {
         Icon: Notifications,
@@ -52,13 +53,13 @@ export const HomeData = {
         Icon: Security,
         title: "Wallet Security Radar",
         description:
-          "Detect approval risks, phishing contracts, and drainer activity before your assets are at risk."
+          "Secure authentication and authorization integrated with OpenID Connect and OAuth2.0 protocol"
       },
       {
         Icon: Bolt,
-        title: "Defi Position Monitor",
+        title: "Swift and Decisive",
         description:
-          "Aggregate your yield, LP positions, staking rewards, and health factors across every protocol."
+          "Smooth User Experience as a result from limited external calls from other services"
       },
       {
         Icon: Public,
@@ -74,20 +75,21 @@ export const HomeData = {
     points: [
       {
         step: "01",
-        title: "Connect Wallets",
-        description: "Paste any wallet address or connect via WalletConnect."
+        title: "Create an account",
+        description:
+          "Sign up using a username and password, or with social login providers e.g. Google, Github etc."
       },
       {
         step: "02",
-        title: "Configure Alerts",
+        title: "Input crypto IDs",
         description:
-          "Set price targets, whale movements thresholds, and NFT floor triggers."
+          "Get the 24h prices of any kind of crypto-currency coin to your liking."
       },
       {
         step: "03",
-        title: "Track Everything",
+        title: "Track & Calculate Everything",
         description:
-          "Your unified dashboard shows crypto. NFTs, DeFi positions and real P&L in a single live view."
+          "Your unified dashboard shows crypto in a single view, with a calculator for personal investing calculations."
       }
     ]
   },

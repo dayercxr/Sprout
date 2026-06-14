@@ -1,12 +1,12 @@
 # Sprout
 Sprout is a light-weight web application designed for cryptocurrency pricing analysis. 
-It provides a centralized dashboard to discover trending NFT collections, track historical floor prices, analyze
-market capitalizations, and view trading volumes across multiple blockchain networks.
+It provides a centralized dashboard to discover trending coin collections, track floor prices, analyze
+market capitalizations, and view trading volumes.
 
 ## ✨ Key Features
 - Multi-Chain Comparison: Compare collection entry points side-by-side across Ethereum, Solana, and Polygon in a unified view.
 
-- Smart Caching: Temporarily holds fetched data locally using a configurable Time-To-Live (TTL) module to completely eliminate redundant external requests.
+- Smart Caching: Temporarily holds fetched data locally to completely eliminate redundant external requests.
 
 - Delta Snapshotting: Preserves local chronological logs to track price variances without hitting premium historical API endpoints.
 
@@ -76,6 +76,9 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │   ├── topCollection.tsx
 │   │   │   └── trendingCollections.tsx
 │   │   ├── general
+│   │   │   ├── auth
+│   │   │   │   ├── card.tsx
+│   │   │   │   └── container.tsx
 │   │   │   ├── navbar.tsx
 │   │   │   ├── themeProvider.tsx
 │   │   │   └── themeToggle.tsx
@@ -85,6 +88,10 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │   ├── hero.tsx
 │   │   │   ├── nav.tsx
 │   │   │   └── setup.tsx
+│   │   ├── login
+│   │   │   └── login.tsx
+│   │   ├── signup
+│   │   │   └── signup.tsx
 │   │   └── watchlist
 │   │       ├── content.tsx
 │   │       └── statistics.tsx
@@ -112,12 +119,14 @@ market capitalizations, and view trading volumes across multiple blockchain netw
 │   │   │   ├── auth-server.ts
 │   │   │   └── index.ts
 │   │   └── client
-│   │       └── index.ts
+│   │       └── menubar.ts
 │   ├── migrations
 │   │   ├── 0000_tough_ezekiel_stane.sql
+│   │   ├── 0001_complex_silverclaw.sql
 │   │   └── meta
 │   │       ├── _journal.json
-│   │       └── 0000_snapshot.json
+│   │       ├── 0000_snapshot.json
+│   │       └── 0001_snapshot.json
 │   ├── proxy.ts
 │   ├── theme.ts
 │   └── types.ts
