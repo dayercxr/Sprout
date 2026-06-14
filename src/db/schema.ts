@@ -5,7 +5,8 @@ import {
   timestamp,
   boolean,
   index,
-  real
+  doublePrecision,
+  primaryKey
 } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
@@ -80,13 +81,22 @@ export const verification = pgTable(
   (table) => [index("verification_identifier_idx").on(table.identifier)]
 );
 
-export const watchlist = pgTable("watchlist", {
-  id: text("id").primaryKey(),
-  userId: text("user_id").notNull(),
-  cryptoId: text("crypto_id").notNull(),
-  percentChange: real("percent_change").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull()
-});
+export const watchlist = pgTable(
+  "watchlist",
+  {
+    userId: text("user_id").notNull(),
+    buyPrice: doublePrecision("buyPrice"),
+    quantity: doublePrecision("quantity"),
+    coinId: text("coin_id").notNull(),
+    priceUsd: doublePrecision("price_usd"),
+    marketCap: doublePrecision("market_cap"),
+    change24h: doublePrecision("change_24h"),
+    updatedAt: timestamp("updated_at")
+  },
+  (table) => ({
+    pk: primaryKey({ columns: [table.userId, table.coinId] })
+  })
+);
 
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),

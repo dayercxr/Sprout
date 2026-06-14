@@ -15,6 +15,13 @@
       "when": 1781282078115,
       "tag": "0001_complex_silverclaw",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1781447638871,
+      "tag": "0002_big_kinsey_walden",
+      "breakpoints": true
     }
   ]
 }
