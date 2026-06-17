@@ -4,6 +4,17 @@ import { Dispatch, SetStateAction } from "react";
 
 // AuthenticationTypes
 
+export interface SignupTypes {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export type LoginTypes = {
+  email: string;
+  password: string;
+};
+
 // API Types
 
 export interface CoinGeckoTypes {
@@ -55,4 +66,17 @@ export type CalculateDisplayTypes = {
 export interface DialogTypes {
   dialogState: boolean;
   setDialogState: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface WatchlistDataTypes {
+  data: {
+    userId: string;
+    buyPrice: number | null;
+    quantity: number | null;
+    coinId: string;
+    priceUsd: number | null;
+    marketCap: number | null;
+    change24h: number | null;
+    updatedAt: Date | null;
+  };
 }

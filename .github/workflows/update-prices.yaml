@@ -1,0 +1,26 @@
+# .github/workflows/update-crypto-prices.yml
+name: Update Crypto Prices
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # every day at 00:00 UTC
+  workflow_dispatch:       # allow manual trigger from GitHub UI
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call update prices endpoint
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X GET http://localhost:3000/api/cron/update-prices" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}")
+          
+          echo "Response status: $response"
+          
+          if [ "$response" != "200" ]; then
+            echo "Failed with status $response"
+            exit 1
+          fi
+          
+          echo "Prices updated successfully"
