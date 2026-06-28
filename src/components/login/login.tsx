@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
 import { AuthClientHandler } from "@/libs/auth/auth-client";
+import { loginSchema, LoginFormValues } from "@/libs/auth/schema";
 import {
   Alert,
   Box,
@@ -20,7 +22,6 @@ import { SignUpContainer } from "@/components/general/auth/container";
 import { ThemeToggle } from "@/components/general/themeToggle";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { LoginData } from "@/data/login";
-import { LoginTypes } from "@/types";
 
 export default function Login(props: { disableCustomTheme?: boolean }) {
   const [submitError, setSubmitError] = useState("");
@@ -29,13 +30,14 @@ export default function Login(props: { disableCustomTheme?: boolean }) {
     control,
     handleSubmit,
     formState: { errors, isSubmitting }
-  } = useForm<LoginTypes>({
+  } = useForm<LoginFormValues>({
+    resolver: zodResolver(loginSchema),
     defaultValues: { email: "", password: "" }
   });
 
   const { title, fields, social, submit, signup } = LoginData;
 
-  const onSubmit = async (data: LoginTypes) => {
+  const onSubmit = async (data: LoginFormValues) => {
     try {
       setSubmitError("");
       await AuthClientHandler.CredentialsLogInHandler(
@@ -85,11 +87,11 @@ export default function Login(props: { disableCustomTheme?: boolean }) {
               </FormLabel>
               <Controller
                 key={name}
-                name={name as keyof LoginTypes}
+                name={name as keyof LoginFormValues}
                 control={control}
                 rules={rules}
                 render={({ field }) => {
-                  const fieldName = name as keyof LoginTypes;
+                  const fieldName = name as keyof LoginFormValues;
                   return (
                     <TextField
                       {...field}

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
 import { AuthClientHandler } from "@/libs/auth/auth-client";
+import { signupSchema, SignupFormValues } from "@/libs/auth/schema";
 import {
   Box,
   Button,
@@ -19,7 +21,6 @@ import { SignUpContainer } from "@/components/general/auth/container";
 import { ThemeToggle } from "@/components/general/themeToggle";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { SignupData } from "@/data/signup";
-import { SignupTypes } from "@/types";
 
 export default function SignUp() {
   const [submitError, setSubmitError] = useState("");
@@ -28,13 +29,14 @@ export default function SignUp() {
     control,
     handleSubmit,
     formState: { errors, isSubmitting }
-  } = useForm<SignupTypes>({
+  } = useForm<SignupFormValues>({
+    resolver: zodResolver(signupSchema),
     defaultValues: { name: "", email: "", password: "" }
   });
 
   const { title, fields, social, submit, login } = SignupData;
 
-  const onSubmit = async (data: SignupTypes) => {
+  const onSubmit = async (data: SignupFormValues) => {
     try {
       setSubmitError("");
       await AuthClientHandler.CredentialsSignUpHandler(
@@ -84,11 +86,11 @@ export default function SignUp() {
               </FormLabel>
               <Controller
                 key={name}
-                name={name as keyof SignupTypes}
+                name={name as keyof SignupFormValues}
                 control={control}
                 rules={rules}
                 render={({ field }) => {
-                  const fieldName = name as keyof SignupTypes;
+                  const fieldName = name as keyof SignupFormValues;
                   return (
                     <TextField
                       {...field}
