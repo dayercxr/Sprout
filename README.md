@@ -171,6 +171,23 @@ npm run dev
 http://localhost:3000
 ```
 
+## API Reference
+
+| Method   | Endpoint      | Auth Required  | Description                      |
+| -------- | ------------- | -------------- | -------------------------------- |
+| GET      | `/`           | Optional       | Homepage Endpoint                |
+| GET/POST | `/login`      | No             | Login Authentication endpoint    |
+| GET/POST | `/signup`     | No             | Signup Authentication endpoint   |
+| GET      | `/dashboard`  | Yes            | Coins Data Dashboard Endpoint    |
+| GET      | `/calculator` | Yes            | Investment calculations endpoint |
+| GET/POST | `/watchlist`  | Yes            | List of personal Coins endpoint  |
+
+> [!NOTE]
+> Endpoints marked as Auth Required: 
+> • Yes: Endpoint is only accessible when authenticated either via credentials or social providers.
+> • No: Endpoint is only accessible when not authenticated.
+> • Optional: Endpoint is accessible when authenticated/not authenticated, but page content may vary based on authentication status
+
 ## Database Migration
 
 - Generate Migration
