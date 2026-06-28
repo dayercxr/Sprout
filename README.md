@@ -175,18 +175,18 @@ http://localhost:3000
 
 | Method   | Endpoint      | Auth Required  | Description                      |
 | -------- | ------------- | -------------- | -------------------------------- |
-| GET      | `/`           | Optional       | Homepage Endpoint                |
+| GET      | `/`           | Optional       | Homepage endpoint                |
 | GET/POST | `/login`      | No             | Login Authentication endpoint    |
 | GET/POST | `/signup`     | No             | Signup Authentication endpoint   |
-| GET      | `/dashboard`  | Yes            | Coins Data Dashboard Endpoint    |
+| GET      | `/dashboard`  | Yes            | Coins Data Dashboard endpoint    |
 | GET      | `/calculator` | Yes            | Investment calculations endpoint |
 | GET/POST | `/watchlist`  | Yes            | List of personal Coins endpoint  |
 
 > [!NOTE]
 > Endpoints marked as Auth Required: 
-> • Yes: Endpoint is only accessible when authenticated either via credentials or social providers.
-> • No: Endpoint is only accessible when not authenticated.
-> • Optional: Endpoint is accessible when authenticated/not authenticated, but page content may vary based on authentication status
+> • Yes: Endpoint is only accessible when authenticated either via credentials or social providers.<br>
+> • No: Endpoint is only accessible when not authenticated.<br>
+> • Optional: Endpoint is accessible when authenticated/not authenticated, but page content may vary based on authentication status.<br>
 
 ## Database Migration
 
