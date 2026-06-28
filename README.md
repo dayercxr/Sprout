@@ -60,9 +60,12 @@ market capitalizations, and view trading volumes.
 │   │   │   └── watchlist
 │   │   │       └── page.tsx
 │   │   ├── api
-│   │   │   └── auth
-│   │   │       └── [...all]
-│   │   │           └── route.ts
+│   │   │   ├── auth
+│   │   │   │   └── [...all]
+│   │   │   │       └── route.ts
+│   │   │   └── cron
+│   │   │       └── update-prices
+│   │   │           └── routes.ts
 │   │   ├── globals.css
 │   │   └── layout.tsx
 │   ├── components
@@ -94,6 +97,8 @@ market capitalizations, and view trading volumes.
 │   │   │   └── signup.tsx
 │   │   └── watchlist
 │   │       ├── content.tsx
+│   │       ├── dialog.tsx
+│   │       ├── entry.tsx
 │   │       └── statistics.tsx
 │   ├── config.ts
 │   ├── context
@@ -121,12 +126,10 @@ market capitalizations, and view trading volumes.
 │   │   └── client
 │   │       └── menubar.ts
 │   ├── migrations
-│   │   ├── 0000_tough_ezekiel_stane.sql
-│   │   ├── 0001_complex_silverclaw.sql
+│   │   ├── 0000_solid_speedball.sql
 │   │   └── meta
 │   │       ├── _journal.json
-│   │       ├── 0000_snapshot.json
-│   │       └── 0001_snapshot.json
+│   │       └── 0000_snapshot.json
 │   ├── proxy.ts
 │   ├── theme.ts
 │   └── types.ts
