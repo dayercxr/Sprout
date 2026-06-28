@@ -1,27 +1,20 @@
 import { createAuthClient } from "better-auth/client";
-import React from "react";
 
 const authClient = createAuthClient();
 
 export const AuthClientHandler = {
-  CredentialsLogInHandler: async (
-    email: string,
-    password: string,
-    setError: React.Dispatch<React.SetStateAction<string>>
-  ) => {
-    const { error } = await authClient.signIn.email({
+  CredentialsLogInHandler: async (email: string, password: string) => {
+    await authClient.signIn.email({
       email,
       password,
       callbackURL: "/dashboard"
     });
-    if (error) setError(error.message ?? "Log in failed");
   },
 
   CredentialsSignUpHandler: async (
     name: string,
     email: string,
-    password: string,
-    setError: React.Dispatch<React.SetStateAction<string>>
+    password: string
   ) => {
     const { error } = await authClient.signUp.email({
       name,
@@ -29,7 +22,6 @@ export const AuthClientHandler = {
       password,
       callbackURL: "/dashboard"
     });
-    if (error) setError(error.message ?? "Sign up failed");
   },
 
   GoogleHandler: async () => {
