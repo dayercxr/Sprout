@@ -10,5 +10,13 @@ export const WatchlistData = {
     title: "My Watchlist",
     addButton: "+ Add Collection",
     labels: ["Floor Price", "Weekly Change", "Weekly Volume"]
+  },
+  dialog: {
+    title: "Add to Watchlist",
+    labels: [
+      "Search for a collection to add to your watchlist",
+      "Price of Cryptocurrency bought",
+      "Quantity of crypto bought"
+    ]
   }
 };
