@@ -1,13 +1,15 @@
 "use client";
 
-import { FC, useState } from "react";
+import { useState } from "react";
 import { Box, Paper, Typography, Button } from "@mui/material";
 import { Star } from "lucide-react";
 import { WatchlistData } from "@/data/watchlist";
+import { WatchlistEntry } from "@/components/watchlist/entry";
 import { WatchlistDialog } from "@/components/watchlist/dialog";
+import { WatchlistDataTypes } from "@/types";
 import { THEME_VARS } from "@/theme";
 
-export const WatchlistContent: FC = () => {
+export function WatchlistContent({ data }: WatchlistDataTypes) {
   const [dialogState, setDialogState] = useState<boolean>(false);
 
   return (
@@ -84,10 +86,11 @@ export const WatchlistContent: FC = () => {
           Add Your First Collection
         </Button>
       </Box>
+      <WatchlistEntry />
       <WatchlistDialog
         dialogState={dialogState}
         setDialogState={setDialogState}
       />
     </Paper>
   );
-};
+}

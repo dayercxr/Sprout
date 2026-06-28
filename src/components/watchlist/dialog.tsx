@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import {
+  Box,
   Dialog,
   DialogTitle,
   DialogActions,
@@ -9,9 +11,39 @@ import {
   Button,
   TextField
 } from "@mui/material";
+import * as CoinHandlers from "@/libs/api/coins";
+import { THEME_VARS } from "@/theme";
+import { WatchlistData } from "@/data/watchlist";
 import { DialogTypes } from "@/types";
 
 export function WatchlistDialog({ dialogState, setDialogState }: DialogTypes) {
+  const [formData, setFormData] = useState({
+    coinName: "",
+    price: 0,
+    quantity: 0
+  });
+
+  const { title, labels } = WatchlistData.dialog;
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await CoinHandlers.addWatchlistEntry(
+      formData.coinName,
+      formData.price,
+      formData.quantity
+    );
+    setDialogState(false);
+  };
+  console.log(formData);
+
   return (
     <Dialog
       open={dialogState}
@@ -19,32 +51,40 @@ export function WatchlistDialog({ dialogState, setDialogState }: DialogTypes) {
       maxWidth='sm'
       fullWidth
     >
-      <DialogTitle>
-        <Typography variant='h6'>Add to Watchlist</Typography>
-      </DialogTitle>
-      <DialogContent>
-        <Typography sx={{ mb: 2 }}>
-          Search for a collection to add to your watchlist
-        </Typography>
-        <TextField
-          fullWidth
-          placeholder='d'
-          variant='outlined'
-          sx={{ mt: 1 }}
-        />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setDialogState(false)} sx={{}}>
-          Cancel
-        </Button>
-        <Button
-          variant='contained'
-          onClick={() => setDialogState(false)}
-          sx={{}}
-        >
-          Add
-        </Button>
-      </DialogActions>
+      <Box component='form' onSubmit={handleSubmit}>
+        <DialogTitle>
+          <Typography
+            sx={{
+              fontWeight: 700,
+              fontFamily: THEME_VARS.TYPOGRAPHY.SECONDARY_FONT
+            }}
+          >
+            {title}
+          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          {labels.map((label) => (
+            <Box key={label}>
+              <Typography key={label} sx={{ mt: 2.5 }}>
+                {label}
+              </Typography>
+              <TextField
+                fullWidth
+                placeholder='d'
+                variant='outlined'
+                sx={{ mt: 0.5 }}
+                onChange={handleChange}
+              />
+            </Box>
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setDialogState(false)}>Cancel</Button>
+          <Button variant='contained' type='submit'>
+            Add
+          </Button>
+        </DialogActions>
+      </Box>
     </Dialog>
   );
 }

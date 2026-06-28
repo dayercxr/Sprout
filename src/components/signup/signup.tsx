@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { AuthClientHandler } from "@/libs/auth/auth-client";
 import {
   Box,
@@ -18,33 +19,33 @@ import { SignUpContainer } from "@/components/general/auth/container";
 import { ThemeToggle } from "@/components/general/themeToggle";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { SignupData } from "@/data/signup";
+import { SignupTypes } from "@/types";
 
 export default function SignUp() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: ""
+  const [submitError, setSubmitError] = useState("");
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting }
+  } = useForm<SignupTypes>({
+    defaultValues: { name: "", email: "", password: "" }
   });
-  const [error, setError] = useState<string>("");
 
   const { title, fields, social, submit, login } = SignupData;
 
-  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    AuthClientHandler.CredentialsSignUpHandler(
-      formData.name,
-      formData.email,
-      formData.password,
-      setError
-    );
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+  const onSubmit = async (data: SignupTypes) => {
+    try {
+      setSubmitError("");
+      await AuthClientHandler.CredentialsSignUpHandler(
+        data.name,
+        data.email,
+        data.password
+      );
+    } catch (err) {
+      setSubmitError("Invalid username or password.");
+      return submitError;
+    }
   };
 
   return (
@@ -73,20 +74,34 @@ export default function SignUp() {
         </Typography>
         <Box
           component='form'
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           sx={{ display: "flex", flexDirection: "column", gap: 2 }}
         >
-          {fields.map(({ label, type, placeholder }) => (
-            <FormControl key={label}>
-              <FormLabel htmlFor='name'>{label}</FormLabel>
-              <TextField
-                autoComplete={type}
-                name={type}
-                required
-                fullWidth
-                type={type}
-                onChange={handleChange}
-                placeholder={placeholder}
+          {fields.map(({ name, label, type, autoComplete, rules }) => (
+            <FormControl key={name}>
+              <FormLabel htmlFor='name' sx={{ marginBottom: 1 }}>
+                {label}
+              </FormLabel>
+              <Controller
+                key={name}
+                name={name as keyof SignupTypes}
+                control={control}
+                rules={rules}
+                render={({ field }) => {
+                  const fieldName = name as keyof SignupTypes;
+                  return (
+                    <TextField
+                      {...field}
+                      label={label}
+                      type={type}
+                      autoComplete={autoComplete}
+                      error={!!errors[fieldName]}
+                      helperText={
+                        errors[fieldName]?.message as unknown as string
+                      }
+                    />
+                  );
+                }}
               />
             </FormControl>
           ))}
