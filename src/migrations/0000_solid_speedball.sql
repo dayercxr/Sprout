@@ -47,14 +47,20 @@ CREATE TABLE "verification" (
 );
 --> statement-breakpoint
 CREATE TABLE "watchlist" (
-	"id" text PRIMARY KEY NOT NULL,
 	"user_id" text NOT NULL,
-	"crypto_id" text NOT NULL,
-	"created_at" timestamp DEFAULT now() NOT NULL
+	"buyPrice" double precision,
+	"quantity" double precision,
+	"coin_id" text NOT NULL,
+	"price_usd" double precision,
+	"market_cap" double precision,
+	"change_24h" double precision,
+	"updated_at" timestamp,
+	CONSTRAINT "watchlist_user_id_coin_id_pk" PRIMARY KEY("user_id","coin_id")
 );
 --> statement-breakpoint
 ALTER TABLE "account" ADD CONSTRAINT "account_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "session" ADD CONSTRAINT "session_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "watchlist" ADD CONSTRAINT "watchlist_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 CREATE INDEX "account_userId_idx" ON "account" USING btree ("user_id");--> statement-breakpoint
 CREATE INDEX "session_userId_idx" ON "session" USING btree ("user_id");--> statement-breakpoint
 CREATE INDEX "verification_identifier_idx" ON "verification" USING btree ("identifier");

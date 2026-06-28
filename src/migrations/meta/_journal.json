@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1780466331444,
-      "tag": "0000_tough_ezekiel_stane",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1781282078115,
-      "tag": "0001_complex_silverclaw",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1781447638871,
-      "tag": "0002_big_kinsey_walden",
+      "when": 1781453881569,
+      "tag": "0000_solid_speedball",
       "breakpoints": true
     }
   ]

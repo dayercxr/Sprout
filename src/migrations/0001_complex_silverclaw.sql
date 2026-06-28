@@ -1,1 +1,0 @@
-ALTER TABLE "watchlist" ADD COLUMN "percent_change" real NOT NULL;
