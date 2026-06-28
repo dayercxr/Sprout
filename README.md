@@ -183,10 +183,10 @@ http://localhost:3000
 | GET/POST | `/watchlist`  | Yes            | List of personal Coins endpoint  |
 
 > [!NOTE]
-> Endpoints marked as Auth Required: 
+> Endpoints marked as Auth Required:<br>
 > • Yes: Endpoint is only accessible when authenticated either via credentials or social providers.<br>
 > • No: Endpoint is only accessible when not authenticated.<br>
-> • Optional: Endpoint is accessible when authenticated/not authenticated, but page content may vary based on authentication status.<br>
+> • Optional: Endpoint is accessible when authenticated/not authenticated, but page content may vary based on authentication status.
 
 ## Database Migration
 
@@ -207,7 +207,7 @@ npx drizzle-kit push
 ```
 
 > [!CAUTION]
-> Only use `drizzle-kit push` for local development/rapid prototyping.
+> Only use `drizzle-kit push` for local development/rapid prototyping.  
 > Never use it in production.
 
 ## Auto-Format Code
