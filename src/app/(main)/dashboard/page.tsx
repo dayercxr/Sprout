@@ -2,7 +2,7 @@ import { Box, Grid } from "@mui/material";
 import { TrendingCollections } from "@/components/dashboard/trendingCollections";
 import { TopCollection } from "@/components/dashboard/topCollection";
 import { PriceChart } from "@/components/dashboard/priceChart";
-import { CoinHandlers } from "@/libs/api/coins";
+import * as CoinHandlers from "@/libs/api/coins";
 import Coingecko from "@coingecko/coingecko-typescript";
 import { AuthServerHandler } from "@/libs/auth/auth-server";
 import { MarketChartTypes } from "@/types";
