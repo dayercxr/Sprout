@@ -6,7 +6,8 @@ import {
   boolean,
   index,
   doublePrecision,
-  primaryKey
+  primaryKey,
+  unique
 } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
@@ -84,7 +85,9 @@ export const verification = pgTable(
 export const watchlist = pgTable(
   "watchlist",
   {
-    userId: text("user_id").notNull(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
     buyPrice: doublePrecision("buyPrice"),
     quantity: doublePrecision("quantity"),
     coinId: text("coin_id").notNull(),
@@ -93,9 +96,10 @@ export const watchlist = pgTable(
     change24h: doublePrecision("change_24h"),
     updatedAt: timestamp("updated_at")
   },
-  (table) => ({
-    pk: primaryKey({ columns: [table.userId, table.coinId] })
-  })
+  (table) => [
+    primaryKey({ columns: [table.userId, table.coinId] }),
+    unique().on(table.userId, table.coinId)
+  ]
 );
 
 export const userRelations = relations(user, ({ many }) => ({
