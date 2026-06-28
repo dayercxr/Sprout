@@ -108,7 +108,12 @@ export default function Login(props: { disableCustomTheme?: boolean }) {
               />
             </FormControl>
           ))}
-          <Button type='submit' fullWidth variant='contained'>
+          <Button
+            disabled={isSubmitting}
+            type='submit'
+            fullWidth
+            variant='contained'
+          >
             {submit}
           </Button>
         </Box>
@@ -121,7 +126,7 @@ export default function Login(props: { disableCustomTheme?: boolean }) {
               key={label}
               fullWidth
               variant='outlined'
-              onClick={() => Fn}
+              onClick={Fn}
               startIcon={<Icon />}
             >
               {label}

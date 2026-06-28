@@ -107,7 +107,12 @@ export default function SignUp() {
               />
             </FormControl>
           ))}
-          <Button type='submit' fullWidth variant='contained'>
+          <Button
+            disabled={isSubmitting}
+            type='submit'
+            fullWidth
+            variant='contained'
+          >
             {submit}
           </Button>
         </Box>
@@ -120,7 +125,7 @@ export default function SignUp() {
               key={label}
               fullWidth
               variant='outlined'
-              onClick={() => Fn}
+              onClick={Fn}
               startIcon={<Icon />}
             >
               {label}
