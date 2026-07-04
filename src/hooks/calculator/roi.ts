@@ -44,10 +44,10 @@ const ROIReducer = (
   };
 };
 
-export const useProfitCalculator = () => {
+export const useROICalculator = () => {
   const [ROIState, ROIDispatch] = useReducer(ROIReducer, initialState);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleROIInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     ROIDispatch({
       field: e.target.name as keyof typeof initialState,
       payload: e.target.value
@@ -56,6 +56,6 @@ export const useProfitCalculator = () => {
 
   return {
     ...ROIState,
-    handleInputChange
+    handleROIInputChange
   };
 };

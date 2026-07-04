@@ -47,7 +47,7 @@ const profitReducer = (
 export const useProfitCalculator = () => {
   const [profitState, profitDispatch] = useReducer(profitReducer, initialState);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleProfitInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     profitDispatch({
       field: e.target.name as keyof typeof initialState,
       payload: e.target.value
@@ -56,6 +56,6 @@ export const useProfitCalculator = () => {
 
   return {
     ...profitState,
-    handleInputChange
+    handleProfitInputChange
   };
 };

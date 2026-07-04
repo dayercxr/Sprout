@@ -18,8 +18,10 @@ const investmentReducer = (
     ...state,
     [action.field]: Number(action.payload) || 0
   };
+  console.log(state, action, action.field, action.payload, updatedFields);
 
   const { initialInvestment, targetReturn, time } = updatedFields;
+  console.log(updatedFields);
 
   const targetValue = CalculatorHandlers.calculateTargetValue(
     initialInvestment,
@@ -44,17 +46,20 @@ const investmentReducer = (
 };
 
 export const useInvestmentCalculator = () => {
-  const [state, dispatch] = useReducer(investmentReducer, initialState);
+  const [investmentState, investmentDispatch] = useReducer(
+    investmentReducer,
+    initialState
+  );
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch({
+  const handleInvestmentInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    investmentDispatch({
       field: e.target.name as keyof typeof initialState,
       payload: e.target.value
     });
   };
 
   return {
-    ...state,
-    handleInputChange
+    ...investmentState,
+    handleInvestmentInputChange
   };
 };
