@@ -33,7 +33,6 @@ export default async function NFTCalculator() {
             index={index}
             title={data.title}
             description={data.description}
-            Icon={data.logo}
           />
         ))}
       </Box>
