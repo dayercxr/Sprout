@@ -1,6 +1,6 @@
 import Coingecko from "@coingecko/coingecko-typescript";
 import { LucideIcon } from "lucide-react";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, ChangeEvent } from "react";
 
 // AuthenticationTypes
 
@@ -47,7 +47,6 @@ export type CalculateTypes = {
   index: number;
   title: string;
   description: string;
-  Icon: LucideIcon;
 };
 
 export type CalculateInputTypes = {
@@ -55,6 +54,8 @@ export type CalculateInputTypes = {
   label: string;
   type: string;
   placeholder: string;
+  name: string;
+  onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type CalculateDisplayTypes = {
