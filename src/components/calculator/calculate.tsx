@@ -44,7 +44,6 @@ export const Calculate: FC<CalculateTypes> = ({
 
   const CalculatorDataInstance = CalculatorData.individualCalculator[index];
   const calculatorInputArray = CalculatorDataInstance.inputs;
-  console.log(calculatorInputArray);
   const calculatorDisplayArray = CalculatorDataInstance.displays;
   const calculatorLogoBackground = CalculatorDataInstance.logoColor;
 
