@@ -37,7 +37,7 @@ export const getTopCoinPriceChart = async () => {
 
 export const getWatchlistEntries = async () => {
   const sessionInfo = await AuthServerHandler.getSession();
-  const userId = sessionInfo?.session.id;
+  const userId = sessionInfo?.user.id;
   if (!userId) {
     throw new Error("Unable to add watchlist entry without authenticated user");
   }
@@ -83,7 +83,7 @@ export const addWatchlistEntry = async (
           : new Date()
       })
       .onConflictDoUpdate({
-        target: watchlist.coinId,
+        target: [watchlist.coinId, watchlist.userId],
         set: {
           priceUsd: info.usd,
           marketCap: info.usd_market_cap,
