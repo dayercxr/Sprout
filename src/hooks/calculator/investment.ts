@@ -18,10 +18,8 @@ const investmentReducer = (
     ...state,
     [action.field]: Number(action.payload) || 0
   };
-  console.log(state, action, action.field, action.payload, updatedFields);
 
   const { initialInvestment, targetReturn, time } = updatedFields;
-  console.log(updatedFields);
 
   const targetValue = CalculatorHandlers.calculateTargetValue(
     initialInvestment,
