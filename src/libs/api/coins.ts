@@ -97,6 +97,17 @@ export const addWatchlistEntry = async (
   return;
 };
 
+export const deleteWatchlistEntry = async (coinName: string) => {
+  const sessionInfo = await AuthServerHandler.getSession();
+  const userId = sessionInfo?.user.id;
+  if (!userId) {
+    throw new Error("Unable to add watchlist entry without authenticated user");
+  }
+  await db
+    .delete(watchlist)
+    .where(eq(watchlist.coinId, coinName) && eq(watchlist.userId, userId));
+};
+
 export const updateCoinPrices = async () => {
   const trackedCoinsArray = await db
     .select({ coinId: watchlist.coinId })
