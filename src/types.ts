@@ -70,14 +70,16 @@ export interface DialogTypes {
 }
 
 export interface WatchlistDataTypes {
-  data: {
-    userId: string;
-    buyPrice: number | null;
-    quantity: number | null;
-    coinId: string;
-    priceUsd: number | null;
-    marketCap: number | null;
-    change24h: number | null;
-    updatedAt: Date | null;
-  };
+  userId: string;
+  buyPrice: number | null;
+  quantity: number | null;
+  coinId: string;
+  priceUsd: number | null;
+  marketCap: number | null;
+  change24h: number | null;
+  updatedAt: Date | null;
+}
+
+export interface WatchlistArrayDataTypes {
+  data: WatchlistDataTypes[];
 }
