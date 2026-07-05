@@ -23,17 +23,18 @@ export function WatchlistDialog({ dialogState, setDialogState }: DialogTypes) {
     quantity: 0
   });
 
-  const { title, labels } = WatchlistData.dialog;
+  const { title, textfields } = WatchlistData.dialog;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    console.log(name, value);
     setFormData((prevData) => ({
       ...prevData,
       [name]: value
     }));
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     await CoinHandlers.addWatchlistEntry(
       formData.coinName,
@@ -63,15 +64,15 @@ export function WatchlistDialog({ dialogState, setDialogState }: DialogTypes) {
           </Typography>
         </DialogTitle>
         <DialogContent>
-          {labels.map((label) => (
+          {textfields.map(({ label, name }) => (
             <Box key={label}>
               <Typography key={label} sx={{ mt: 2.5 }}>
                 {label}
               </Typography>
               <TextField
                 fullWidth
-                placeholder='d'
                 variant='outlined'
+                name={name}
                 sx={{ mt: 0.5 }}
                 onChange={handleChange}
               />

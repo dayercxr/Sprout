@@ -1,7 +1,14 @@
 import { Box, Typography, Paper, IconButton } from "@mui/material";
+import { WatchlistDataTypes } from "@/types";
+import { deleteWatchlistEntry } from "@/libs/api/coins";
 import { X } from "lucide-react";
 
-export function WatchlistEntry({}) {
+export function WatchlistEntry({
+  coinId,
+  priceUsd,
+  marketCap,
+  change24h
+}: WatchlistDataTypes) {
   return (
     <Paper
       sx={{
@@ -20,7 +27,7 @@ export function WatchlistEntry({}) {
       />
 
       <Box sx={{ flex: 1 }}>
-        <Typography variant='h6'>name</Typography>
+        <Typography variant='h6'>{coinId}</Typography>
         <Typography variant='body2' sx={{ color: "#c4b5fd" }}>
           Added
         </Typography>
@@ -28,9 +35,9 @@ export function WatchlistEntry({}) {
 
       <Box sx={{ textAlign: "right", minWidth: 120 }}>
         <Typography variant='caption' sx={{ color: "#c4b5fd" }}>
-          Floor Price
+          Current Price (USD)
         </Typography>
-        <Typography variant='h6'>ETH</Typography>
+        <Typography variant='h6'>{priceUsd} USD</Typography>
       </Box>
 
       <Box sx={{ textAlign: "right", minWidth: 100 }}>
@@ -45,7 +52,7 @@ export function WatchlistEntry({}) {
             gap: 0.5
           }}
         >
-          <Typography variant='h6'>k</Typography>
+          <Typography variant='h6'>{change24h?.toFixed(2)}</Typography>
         </Box>
       </Box>
 
@@ -53,7 +60,7 @@ export function WatchlistEntry({}) {
         <Typography variant='caption' sx={{ color: "#c4b5fd" }}>
           24h Volume
         </Typography>
-        <Typography variant='h6'>ETH</Typography>
+        <Typography variant='h6'>{marketCap?.toFixed(2)} USD</Typography>
       </Box>
 
       <IconButton
@@ -62,6 +69,7 @@ export function WatchlistEntry({}) {
           color: "#f87171",
           "&:hover": { bgcolor: "rgba(239, 68, 68, 0.3)" }
         }}
+        onClick={() => deleteWatchlistEntry(coinId)}
       >
         <X size={20} />
       </IconButton>

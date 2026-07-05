@@ -6,12 +6,11 @@ import { Star } from "lucide-react";
 import { WatchlistData } from "@/data/watchlist";
 import { WatchlistEntry } from "@/components/watchlist/entry";
 import { WatchlistDialog } from "@/components/watchlist/dialog";
-import { WatchlistDataTypes } from "@/types";
+import { WatchlistArrayDataTypes } from "@/types";
 import { THEME_VARS } from "@/theme";
 
-export function WatchlistContent({ data }: WatchlistDataTypes) {
+export function WatchlistContent(data: WatchlistArrayDataTypes) {
   const [dialogState, setDialogState] = useState<boolean>(false);
-
   return (
     <Paper sx={{ mb: 7 }}>
       <Box
@@ -46,47 +45,64 @@ export function WatchlistContent({ data }: WatchlistDataTypes) {
         </Button>
       </Box>
 
-      <Box sx={{ textAlign: "center", py: 8 }}>
-        <Star size={64} style={{ margin: "0 auto 16px" }} />
-        <Typography variant='h6' color='white'>
-          No collections in your watchlist
-        </Typography>
-        <Typography
-          variant='body1'
-          sx={[
-            { mb: 3 },
-            (theme) =>
-              theme.applyStyles("light", {
-                color: THEME_VARS.LIGHT.DEFAULT_COLOR
-              }),
-            (theme) =>
-              theme.applyStyles("dark", {
-                color: THEME_VARS.DARK.DEFAULT_COLOR
-              })
-          ]}
-        >
-          Start tracking your favorite NFT collections
-        </Typography>
-        <Button
-          variant='contained'
-          onClick={() => setDialogState(true)}
-          sx={[
-            (theme) =>
-              theme.applyStyles("light", {
-                color: THEME_VARS.LIGHT.BACKGROUND_COLOR,
-                bgcolor: THEME_VARS.LIGHT.DEFAULT_COLOR
-              }),
-            (theme) =>
-              theme.applyStyles("dark", {
-                color: THEME_VARS.DARK.BACKGROUND_COLOR,
-                bgcolor: THEME_VARS.DARK.DEFAULT_COLOR
-              })
-          ]}
-        >
-          Add Your First Collection
-        </Button>
+      <Box sx={{ textAlign: "center" }}>
+        {data.data.length !== 0 ? (
+          data.data.map((entry, index) => (
+            <WatchlistEntry
+              key={index}
+              userId={entry.userId}
+              buyPrice={entry.buyPrice}
+              quantity={entry.quantity}
+              coinId={entry.coinId}
+              priceUsd={entry.priceUsd}
+              marketCap={entry.marketCap}
+              change24h={entry.change24h}
+              updatedAt={entry.updatedAt}
+            />
+          ))
+        ) : (
+          <Box sx={{ textAlign: "center", py: 8 }}>
+            <Star size={64} style={{ margin: "0 auto 16px" }} />
+            <Typography variant='h6' color='white'>
+              No collections in your watchlist
+            </Typography>
+            <Typography
+              variant='body1'
+              sx={[
+                { mb: 3 },
+                (theme) =>
+                  theme.applyStyles("light", {
+                    color: THEME_VARS.LIGHT.DEFAULT_COLOR
+                  }),
+                (theme) =>
+                  theme.applyStyles("dark", {
+                    color: THEME_VARS.DARK.DEFAULT_COLOR
+                  })
+              ]}
+            >
+              Start tracking your favorite NFT collections
+            </Typography>
+            <Button
+              variant='contained'
+              onClick={() => setDialogState(true)}
+              sx={[
+                (theme) =>
+                  theme.applyStyles("light", {
+                    color: THEME_VARS.LIGHT.BACKGROUND_COLOR,
+                    bgcolor: THEME_VARS.LIGHT.DEFAULT_COLOR
+                  }),
+                (theme) =>
+                  theme.applyStyles("dark", {
+                    color: THEME_VARS.DARK.BACKGROUND_COLOR,
+                    bgcolor: THEME_VARS.DARK.DEFAULT_COLOR
+                  })
+              ]}
+            >
+              Add Your First Collection
+            </Button>
+          </Box>
+        )}
       </Box>
-      <WatchlistEntry />
       <WatchlistDialog
         dialogState={dialogState}
         setDialogState={setDialogState}
