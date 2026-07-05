@@ -6,15 +6,13 @@ import { AuthServerHandler } from "@/libs/auth/auth-server";
 
 export default async function Watchlist() {
   await AuthServerHandler.requireAuth();
-  const watchlistGay = await CoinHandlers.getWatchlistEntries();
-  const watchlistEntry = (await CoinHandlers.getWatchlistEntries())[0];
-  console.log(watchlistGay);
-  console.log(watchlistEntry);
+  const watchlistEntries = await CoinHandlers.getWatchlistEntries();
+  console.log(watchlistEntries);
 
   return (
     <Box sx={{ mx: 15 }}>
       <WatchlistStatistics />
-      <WatchlistContent data={watchlistEntry} />
+      <WatchlistContent data={watchlistEntries} />
     </Box>
   );
 }
