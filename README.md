@@ -114,6 +114,10 @@ market capitalizations, and view trading volumes.
 │   │   ├── index.ts
 │   │   └── schema.ts
 │   ├── hooks
+│   │   └── calculator
+│   │       ├── investment.ts
+│   │       ├── profit.ts
+│   │       └── roi.ts
 │   ├── libs
 │   │   ├── api
 │   │   │   ├── coins.ts
@@ -122,8 +126,10 @@ market capitalizations, and view trading volumes.
 │   │   ├── auth
 │   │   │   ├── auth-client.ts
 │   │   │   ├── auth-server.ts
-│   │   │   └── index.ts
+│   │   │   ├── index.ts
+│   │   │   └── schema.ts
 │   │   └── client
+│   │       ├── calculator.ts
 │   │       └── menubar.ts
 │   ├── migrations
 │   │   ├── 0000_solid_speedball.sql
