@@ -13,10 +13,13 @@ export const WatchlistData = {
   },
   dialog: {
     title: "Add to Watchlist",
-    labels: [
-      "Search for a collection to add to your watchlist",
-      "Price of Cryptocurrency bought",
-      "Quantity of crypto bought"
+    textfields: [
+      {
+        label: "Search for a collection to add to your watchlist",
+        name: "coinName"
+      },
+      { label: "Price of Cryptocurrency bought", name: "price" },
+      { label: "Quantity of crypto bought", name: "quantity" }
     ]
   }
 };
