@@ -17,6 +17,15 @@ export type LoginTypes = {
 
 // API Types
 
+export type TrendingCoin = {
+  id?: string;
+  image?: string;
+  name?: string;
+  current_price?: number | string;
+  price_change_percentage_24h?: number | string;
+  high_24h?: number | string;
+};
+
 export interface CoinGeckoTypes {
   data: Coingecko;
 }
