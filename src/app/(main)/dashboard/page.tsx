@@ -5,7 +5,7 @@ import { PriceChart } from "@/components/dashboard/priceChart";
 import * as CoinHandlers from "@/libs/api/coins";
 import Coingecko from "@coingecko/coingecko-typescript";
 import { AuthServerHandler } from "@/libs/auth/auth-server";
-import { MarketChartTypes } from "@/types";
+import { MarketChartTypes, TrendingCoin } from "@/types";
 
 export default async function Dashboard() {
   await AuthServerHandler.requireAuth();
@@ -18,7 +18,9 @@ export default async function Dashboard() {
     <>
       <Grid container spacing={3}>
         <Grid>
-          <TrendingCollections data={coinList as unknown as Coingecko} />
+          <TrendingCollections
+            data={coinList as TrendingCoin | TrendingCoin[] | undefined}
+          />
         </Grid>
 
         <Grid>
