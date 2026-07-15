@@ -6,12 +6,11 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
   ResponsiveContainer
 } from "recharts";
 import { Paper, Typography, Box } from "@mui/material";
 import { RechartsHandlers } from "@/libs/api/recharts";
-import { CoinGeckoTypes, MarketChartTypes } from "@/types";
+import { MarketChartTypes } from "@/types";
 
 export function PriceChart(data: MarketChartTypes) {
   const newData = RechartsHandlers.getPriceChartData(data);

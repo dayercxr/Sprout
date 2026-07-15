@@ -23,7 +23,7 @@ import { ThemeToggle } from "@/components/general/themeToggle";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { LoginData } from "@/data/login";
 
-export default function Login(props: { disableCustomTheme?: boolean }) {
+export default function Login() {
   const [submitError, setSubmitError] = useState("");
 
   const {
@@ -46,6 +46,7 @@ export default function Login(props: { disableCustomTheme?: boolean }) {
       );
     } catch (err) {
       setSubmitError("Invalid username or password.");
+      console.log(err);
       return submitError;
     }
   };

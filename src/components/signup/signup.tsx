@@ -46,6 +46,7 @@ export default function SignUp() {
       );
     } catch (err) {
       setSubmitError("Invalid username or password.");
+      console.log(err);
       return submitError;
     }
   };
