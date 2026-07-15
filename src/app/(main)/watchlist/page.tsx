@@ -7,7 +7,6 @@ import { AuthServerHandler } from "@/libs/auth/auth-server";
 export default async function Watchlist() {
   await AuthServerHandler.requireAuth();
   const watchlistEntries = await CoinHandlers.getWatchlistEntries();
-  console.log(watchlistEntries);
 
   return (
     <Box sx={{ mx: 15 }}>
