@@ -10,7 +10,7 @@ import { AuthServerHandler } from "@/libs/auth/auth-server";
 export const getCoinList = async () => {
   const coinMarketsData = await cgClient.coins.markets.get({
     vs_currency: "usd",
-    per_page: 30
+    per_page: 6
   });
   return coinMarketsData;
 };
