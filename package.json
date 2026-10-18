@@ -43,7 +43,7 @@
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@typescript-eslint/eslint-plugin": "^8.59.3",
+    "@typescript-eslint/eslint-plugin": "^8.71.2",
     "@typescript-eslint/parser": "^8.70.0",
     "babel-plugin-react-compiler": "1.0.0",
     "drizzle-kit": "^0.31.11",
