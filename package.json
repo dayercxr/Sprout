@@ -32,7 +32,7 @@
     "drizzle-orm": "^0.45.4",
     "kysely": "^0.29.6",
     "lucide-react": "^1.57.0",
-    "next": "16.4.3",
+    "next": "16.4.6",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-hook-form": "^7.92.0",
