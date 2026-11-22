@@ -28,7 +28,7 @@
     "@neondatabase/serverless": "^1.1.0",
     "axios": "^1.21.0",
     "better-auth": "^1.7.22",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.10",
     "drizzle-orm": "^0.45.4",
     "kysely": "^0.29.6",
     "lucide-react": "^1.57.0",
